@@ -44,3 +44,18 @@ services:
         - 8081:8080
       depends_on:
         - db
+
+    app:
+      build:
+        context: .
+        dockerfile: docker/app/app.docker
+      volumes:
+        - './src/app:/app'
+        - '/src/app/node_modules'
+      ports:
+        - '3001:3000'
+      environment:
+        - NODE_ENV=development
+      restart: always
+      depends_on:
+        - api_app
