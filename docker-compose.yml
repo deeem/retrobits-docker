@@ -1,0 +1,46 @@
+version: '2'
+services:
+
+    api_app:
+      build:
+        context: .
+        dockerfile: docker/api/app.docker
+      depends_on:
+        - db
+      volumes:
+        - ./src/api:/var/www
+      working_dir: /var/www
+      restart: always
+
+    api_http:
+      build:
+        context: .
+        dockerfile: docker/api/web.docker
+      depends_on:
+        - api_app
+      volumes_from:
+        - api_app
+      working_dir: /var/www
+      ports:
+        - "8080:80"
+      restart: always
+
+    db:
+      image: postgres
+      restart: always
+      volumes:
+        - ./data/postgres:/var/lib/postgresql/data
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_DB: homestead
+        POSTGRES_USER: homestead
+        POSTGRES_PASSWORD: secret
+
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8081:8080
+      depends_on:
+        - db

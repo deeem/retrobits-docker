@@ -1,0 +1,2 @@
+#!/bin/bash
+docker-compose exec api_app php artisan tinker
