@@ -45,17 +45,32 @@ services:
       depends_on:
         - db
 
-    app:
-      build:
-        context: .
-        dockerfile: docker/app/app.docker
-      volumes:
-        - './src/app:/app'
-        - '/src/app/node_modules'
-      ports:
-        - '3001:3000'
-      environment:
-        - NODE_ENV=development
-      restart: always
-      depends_on:
-        - api_app
+    # app:
+    #   build:
+    #     context: .
+    #     dockerfile: docker/app/app.docker
+    #   volumes:
+    #     - './src/app:/app'
+    #     - '/src/app/node_modules'
+    #   ports:
+    #     - '3001:3000'
+    #   environment:
+    #     - NODE_ENV=development
+    #   restart: always
+    #   depends_on:
+    #     - api_app
+
+    # admin:
+    #   build:
+    #     context: .
+    #     dockerfile: docker/admin/admin.docker
+    #   volumes:
+    #     - './src/admin:/app'
+    #     - '/src/app/node_modules'
+    #   ports:
+    #     - '3002:3000'
+    #   environment:
+    #     - NODE_ENV=development
+    #   restart: always
+    #   depends_on:
+    #     - api_app
