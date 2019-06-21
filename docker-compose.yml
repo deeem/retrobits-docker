@@ -37,13 +37,13 @@ services:
         POSTGRES_USER: homestead
         POSTGRES_PASSWORD: secret
 
-    adminer:
-      image: adminer
-      restart: always
-      ports:
-        - 8081:8080
-      depends_on:
-        - db
+    # adminer:
+    #   image: adminer
+    #   restart: always
+    #   ports:
+    #     - 8081:8080
+    #   depends_on:
+    #     - db
 
     # app:
     #   build:
