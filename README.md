@@ -28,8 +28,13 @@ Docker will expose some services ports. You can change them in *docker-compose.y
 
 ### Endpoints
 * **api:** `http://127.0.0.1:8080`
+<<<<<<< HEAD
 * **app:** `http://127.0.0.1:3000`
 * **admin:** `http://127.0.0.1:3001`
+=======
+* **app:** `http://127.0.0.1:3001`
+* **admin:** `http://127.0.0.1:3002`
+>>>>>>> f7f23fc7fec0313a1def613d0642abf4d0c198b2
 
 ### Tools
 * **adminer:** `http://127.0.0.1:8081`
