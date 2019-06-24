@@ -43,3 +43,8 @@ Docker will expose some services ports. You can change them in *docker-compose.y
 * stop all containers `docker-composer stop`
 * down all containers `docker-composer down`
 * start all containers `docker-composer up -d`
+
+### Seeding games with VGMUSEUM data
+* create export files using this [scraper](https://github.com/deeem/vgmuseum-grabber) or download [this one](https://mega.nz/#!pCR1RARQ!VHvB4s8AUYwGj8Tj4tvIskMxvaxf5CWeKeOTPP0NoQg)
+* copy `images` folder and `games.json` to the *api* public storage directory `src/api/storage/public`
+* reseed the DB `./artisan migrate:fresh --seed`
