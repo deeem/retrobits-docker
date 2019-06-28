@@ -19,3 +19,5 @@ cp src/admin/.env.example src/admin/.env
 sh artisan key:generate
 
 sh artisan migrate --seed
+
+sh artisan pasport:install
